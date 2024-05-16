@@ -52,6 +52,9 @@ You can use it anywhere you want to store a Task, not just in the example above!
 
 ## Features
 
+## Contribution
+Welcome any form of contribution via [issue](https://github.com/woin2ee/TaskStore/issues) or [pull request](https://github.com/woin2ee/TaskStore/pulls), such as any features you'd like to see added, bug reports, etc. 🙌
+
 ## Installation
 ```swift
 dependencies: [
