@@ -51,6 +51,14 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 You can use it anywhere you want to store a Task, not just in the example above!
 
 ## Features
+- The stored tasks are automatically removed from the store when it completed.("Removed" means to removed from memory and can't access anymore)
+
+## How it works?
+When you store the task, it created parent task that will remove stored task.
+This parent task is waiting for the associated task to complete and it has lowest priority so that executed in the background.
+
+<img width="400" alt="image" src="https://github.com/woin2ee/TaskStore/assets/81426024/9a04539f-427f-4063-b455-6b5e10f2b12f">
+
 
 ## Contribution
 Welcome any form of contribution via [issue](https://github.com/woin2ee/TaskStore/issues) or [pull request](https://github.com/woin2ee/TaskStore/pulls), such as any features you'd like to see added, bug reports, etc. 🙌
