@@ -46,6 +46,7 @@ public class TaskStore<Key: Hashable> {
     /// - Parameter predicate: <#predicate description#>
     /// - Returns: <#description#>
     public func tasks(where predicate: (Key) -> Bool) -> [CancellableTask] {
+        lock.lock(); defer { lock.unlock() }
         return taskMap
             .filter { key, _ in predicate(key) }
             .map(\.value)

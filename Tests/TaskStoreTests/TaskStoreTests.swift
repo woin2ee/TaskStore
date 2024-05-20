@@ -3,6 +3,29 @@ import XCTest
 
 final class TaskStoreTests: XCTestCase {
     
+    func test_concurrentAccess() {
+        let taskStore = TaskStore<String>()
+        let task = Task {
+            sleep(1)
+            throw TestError.test
+        }
+        taskStore.setTask(task, forKey: "TestKey")
+        
+        (1...100).forEach { _ in
+            DispatchQueue.global().async {
+                taskStore.setTask(task, forKey: "TestKey")
+                _ = taskStore.task(forKey: "TestKey")
+            }
+        }
+        
+        (1...100).forEach { _ in
+            DispatchQueue.global().async {
+                taskStore.setTask(task, forKey: "TestKey")
+                _ = taskStore.tasks(where: { $0 == "TestKey" })
+            }
+        }
+    }
+    
     func test_subscript() {
         let taskStore = TaskStore<Int>()
         taskStore.setTask(
@@ -14,7 +37,7 @@ final class TaskStoreTests: XCTestCase {
         XCTAssertNotNil(taskStore[0])
     }
     
-    func test_searchTasks() {
+    func test_searchTasksWithPredicate() {
         struct CustomKey: Hashable {
             let number: Int
         }
