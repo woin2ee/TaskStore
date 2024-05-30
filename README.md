@@ -61,7 +61,7 @@ This parent task is waiting for the associated task to complete and it has lowes
 
 
 ## Contribution
-Welcome any form of contribution via [issue](https://github.com/woin2ee/TaskStore/issues) or [pull request](https://github.com/woin2ee/TaskStore/pulls), such as any features you'd like to see added, bug reports, etc. 🙌
+Welcome any contributions via [issue](https://github.com/woin2ee/TaskStore/issues) or [pull request](https://github.com/woin2ee/TaskStore/pulls), such as any features you'd like to see added, bug reports, etc. 🙌
 
 ## Installation
 ```swift
