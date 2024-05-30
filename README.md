@@ -1,5 +1,5 @@
 # TaskStore
-A Store where you can store the tasks that describes in Swift concurrency. It is useful when you want to cancel specific tasks at the appropriate points.
+A Store where you can temporarily hold the tasks that describes in Swift concurrency. It is useful when you want to cancel specific tasks at the appropriate points.
 
 For example, it can be used to fetch the image for `UITableViewCell` using `Task`.  
 In this case, we require to cancel the `Task`, however, it's not that simple without other implementation changes.  
